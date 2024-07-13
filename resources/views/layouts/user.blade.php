@@ -1,11 +1,9 @@
-
 @extends('layouts.app')
 
-@section('title', 'poetofolio')
+@section('title', 'Portofolio')
 
 @section('head')
-
-    <!-- Facebook and Twitter integration -->
+    <!-- Meta tags for social media integration -->
     <meta property="og:title" content="" />
     <meta property="og:image" content="" />
     <meta property="og:url" content="" />
@@ -16,9 +14,8 @@
     <meta name="twitter:url" content="" />
     <meta name="twitter:card" content="" />
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Favicon and Fonts -->
     <link rel="shortcut icon" href="favicon.ico">
-
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 
@@ -31,7 +28,7 @@
     <!-- Flexslider  -->
     <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}">
     <!-- Flaticons  -->
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css ">
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
     <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
@@ -41,22 +38,16 @@
     <!-- Modernizr JS -->
     <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
     <!-- FOR IE9 below -->
-
     <script src="{{ asset('js/respond.min.js') }}"></script>
 @endsection
 
-
-
 @section('body')
     <div id="colorlib-page">
-        <div class="container-wrap">
-            
+        <div class="container">
+            @yield('web')
             @include('layouts.user-sidebar')
             <div id="colorlib-main">
-
                 @yield('app')
-           
-
             </div><!-- end:colorlib-main -->
         </div><!-- end:container-wrap -->
     </div><!-- end:colorlib-page -->
@@ -75,9 +66,7 @@
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <!-- Counters -->
     <script src="{{ asset('js/jquery.countTo.js') }}"></script>
-
-
     <!-- MAIN JS -->
     <script src="{{ asset('js/main.js') }}"></script>
-
+    @stack('js')
 @endsection

@@ -32,9 +32,9 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'profesi' => 'nullable|string|max:255',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Updated validation for avatar
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048', // Updated validation for avatar
             'negara' => 'nullable|string|max:255',
-            'password' => 'nullable|string|min:8|confirmed',
+    
         ]);
 
         $userData = [
@@ -42,7 +42,6 @@ class UserController extends Controller
             'email' => $request->email,
             'profesi' => $request->profesi,
             'negara' => $request->negara,
-            'password' => $request->password ? Hash::make($request->password) : $user->password,
         ];
 
         // Handle avatar update

@@ -3,39 +3,50 @@
 @section('title', 'Users')
 
 @section('app')
-    <div class="container-fluid mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200">
-                <h2 class="text-2xl font-bold leading-tight text-gray-900">Users</h2>
-                <div class="mt-4">
-                    @if (session('success'))
-                        <div class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3 mb-3" role="alert">
-                            {{ session('success') }}
+    <div class="container-fluid px-2 px-md-4">
+        <div class="page-header min-height-300 border-radius-xl mt-4"
+            style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+            <span class="mask bg-gradient-primary opacity-6"></span>
+        </div>
+        <div class="card card-body mx-3 mx-md-4 mt-n6">
+            <div class="row gx-4 mb-2">
+                @foreach ($users as $user)
+                    <div class="col-auto">
+                        <div class="avatar avatar-xl position-relative">
+                            @if ($user->avatar)
+                                <img src="{{ asset('storage/' . $user->avatar) }}" alt="profile_image"
+                                    class="w-100 border-radius-lg shadow-sm">
+                            @else
+                                <span class="mt-1 text-sm leading-5 text-gray-900">No avatar uploaded</span>
+                            @endif
                         </div>
-                    @endif
-
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead>
-                            <tr>
-                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50">Name</th>
-                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50">Email</th>
-                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">{{ $user->name }}</td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">{{ $user->email }}</td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-sm font-medium leading-5 text-gray-900">
-                                        <a href="{{ route('admin.users.show', $user->id) }}" class="text-indigo-600 hover:text-indigo-900">View</a>
-                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="ml-4 text-indigo-600 hover:text-indigo-900">Edit</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                    </div>
+                    <div class="col-auto my-auto">
+                        <div class="h-100">
+                            <h5 class="mb-1">
+                                {{ $user->name }}
+                            </h5>
+                            <p class="mb-0 font-weight-normal text-sm">
+                                {{ $user->profesi }}
+                            </p>
+                            <p class="mb-0 font-weight-normal text-sm">
+                                {{ $user->email }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+                        <div class="nav-wrapper position-relative end-0">
+                            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                                <li class="nav-item bg-gradient-faded-primary">
+                                    <a class="nav-link mb-0 px-0 py-1" href="{{ route('admin.users.edit', $user->id) }}">
+                                        <i class="material-icons text-lg position-relative">edit</i>
+                                        <span class="ms-1">Edit</span>
+                                    </a>
+                                </li>                                
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

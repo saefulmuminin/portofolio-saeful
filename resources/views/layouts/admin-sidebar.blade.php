@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse w-auto height-600" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
+                <a class="nav-link text-white {{ Request::is('admin/dashboard') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.dashboard') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{route('admin.users.index')}}">
+                <a class="nav-link text-white {{ Request::is('admin/users*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.users.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#home" data-nav-section="home">
+                <a class="nav-link text-white {{ Request::is('admin/hero_sliders*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.hero_sliders.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">home</i>
                     </div>
@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#about" data-nav-section="about">
+                <a class="nav-link text-white {{ Request::is('admin/about_us*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.about_us.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#services" data-nav-section="services">
+                <a class="nav-link text-white {{ Request::is('admin/services*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.services.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">build</i>
                     </div>
@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#skills" data-nav-section="skills">
+                <a class="nav-link text-white {{ Request::is('admin/skills*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.skills.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">star</i>
                     </div>
@@ -58,7 +58,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#education" data-nav-section="education">
+                <a class="nav-link text-white {{ Request::is('admin/educations*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.educations.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">school</i>
                     </div>
@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#experience" data-nav-section="experience">
+                <a class="nav-link text-white {{ Request::is('admin/experiences*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.experiences.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">work</i>
                     </div>
@@ -74,24 +74,23 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#work" data-nav-section="work">
+                <a class="nav-link text-white {{ Request::is('admin/portfolios*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.portfolios.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">assignment</i>
                     </div>
-                    <span class="nav-link-text ms-1">Work</span>
+                    <span class="nav-link-text ms-1">Portofolio</span>
                 </a>
             </li>
-            
             <li class="nav-item">
-                <a class="nav-link text-white" href="#blog" data-nav-section="blog">
+                <a class="nav-link text-white {{ Request::is('admin/certificates*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.certificates.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">rss_feed</i>
                     </div>
-                    <span class="nav-link-text ms-1">Blog</span>
+                    <span class="nav-link-text ms-1">Sertifikasi</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#contact" data-nav-section="contact">
+                <a class="nav-link text-white {{ Request::is('admin/messages*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('admin.messages.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">contact_mail</i>
                     </div>
